@@ -135,10 +135,14 @@ class AnnoListCtrl extends PanelCtrl {
             to: anno.timeEnd ? this._timeOffset(anno.timeEnd, this.panel.navigateAfter, false) : this._timeOffset(anno.time, this.panel.navigateAfter, false)
         };
 
+        console.log(["range", range]);
+
         // Link to the panel on the same dashboard
         if (this.dashboard.id === anno.dashboardId) {
+            console.log(["this.dashboard.id === anno.dashboardId", this.dashboard.id, anno.dashboardId]);
             this.timeSrv.setTime(range);
             if (this.panel.navigateToPanel) {
+                console.log(["viewPanel", anno.panelId]);
                 this.$location.search('viewPanel', anno.panelId);
             }
             return;
